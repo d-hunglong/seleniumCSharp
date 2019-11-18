@@ -1,0 +1,23 @@
+﻿Run C# Multiple Selenium Unit Test with one driver instance
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+[TestFixture]
+ [TestFixtureSetup]
+  [Test] //first test
+  [Test] //second test
+  [Test] //third test
+[TestFixtureTearDown]
+
+using NUnit.Framework;
+
+[OneTimeSetUp]
+    [Test]
+    [Test]
+    ...
+    ...
+    ...
+    [Test]
+[OneTimeTearDown]
+
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe" "C:\Users\long.do\source\repos\seleniumCSharp\seleniumCSharp\bin\Debug\seleniumCSharp.dll" /Tests:HelloWorldTest /Logger:trx;LogFileName=C:\Output\Resut.trx

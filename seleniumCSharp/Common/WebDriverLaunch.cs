@@ -19,6 +19,7 @@ namespace seleniumCSharp.Common
             launchDriver();
             driver.Url = "https://dlevvia.aaps.deloitte.com/";
         }
+
         public enum BrowserType
         {
             Firefox,
@@ -44,10 +45,11 @@ namespace seleniumCSharp.Common
                     driver = new EdgeDriver();
                     break;
                 default:
-                    //throw new NotSupportedException("No Browser Driver Supported!");
-                    throw new ArgumentOutOfRangeException(nameof(browserType), browserType, null);
+                    throw new NotSupportedException("Unrecognized browser type: " + browserType);
+                    //throw new ArgumentOutOfRangeException(nameof(browserType), browserType, null);
             }
             driver.Manage().Window.Maximize();
+            //driver.Manage().Window.FullScreen();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
         }
 

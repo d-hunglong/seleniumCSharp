@@ -5,6 +5,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
+using OpenQA.Selenium.Safari;
 
 namespace seleniumCSharp.Common
 {
@@ -26,6 +27,7 @@ namespace seleniumCSharp.Common
             Ie,
             Chrome,
             Edge,
+            Safari,
         }
         public static void launchDriver()
         {
@@ -44,12 +46,13 @@ namespace seleniumCSharp.Common
                 case BrowserType.Edge:
                     driver = new EdgeDriver();
                     break;
+                case BrowserType.Safari:
+                    driver = new SafariDriver();
+                    break;
                 default:
                     throw new NotSupportedException("Unrecognized browser type: " + browserType);
-                    //throw new ArgumentOutOfRangeException(nameof(browserType), browserType, null);
             }
             driver.Manage().Window.Maximize();
-            //driver.Manage().Window.FullScreen();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
         }
 

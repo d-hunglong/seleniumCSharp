@@ -17,7 +17,6 @@ namespace seleniumCSharp.TestCases
             PageActions.click(LoginObjects.nextButton);
             PageActions.waitElementVisibility(LoginObjects.loginMessage);
             string temptext = PageActions.gettext(LoginObjects.loginMessage);
-            Console.WriteLine(temptext);
             Assert.IsTrue(temptext.Contains("Sign in with your Deloitte account"));
         }
         [Test, Order(2)]
@@ -27,7 +26,6 @@ namespace seleniumCSharp.TestCases
             PageActions.click(LoginObjects.submitButton);
             PageActions.waitElementVisibility(LoginObjects.errorMessage);
             string temptext = PageActions.gettext(LoginObjects.errorMessage);
-            Console.WriteLine(temptext);
             Assert.IsTrue(temptext.Contains("Incorrect user ID or password. Type the correct user ID and password"));
         }
         [Test, Order(3)]
@@ -38,7 +36,6 @@ namespace seleniumCSharp.TestCases
             PageActions.click(LoginObjects.backButton);
             PageActions.waitElementVisibility(LoginObjects.loginTitle);
             string temptext = PageActions.gettext(LoginObjects.loginTitle);
-            Console.WriteLine(temptext);
             Assert.IsTrue(temptext.Contains("Sign in"));
         }
     }

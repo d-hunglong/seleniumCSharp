@@ -2,6 +2,7 @@
 using System.Threading;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
+using System;
 
 namespace seleniumCSharp.Common
 {
@@ -36,7 +37,9 @@ namespace seleniumCSharp.Common
         }
         public static string gettext(By by)
         {
-            return driver.FindElement(by).Text;
+            string temp = driver.FindElement(by).Text;
+            Console.WriteLine(temp);
+            return temp;
         }
         public static void doubleClick(By by)
         {

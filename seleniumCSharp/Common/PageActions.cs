@@ -34,6 +34,7 @@ namespace seleniumCSharp.Common
         {
             WebDriverWait wait = new WebDriverWait(driver, System.TimeSpan.FromSeconds(20));
             wait.Until(driver => driver.FindElement(by));
+            Thread.Sleep(500);
         }
         public static string gettext(By by)
         {
@@ -56,6 +57,11 @@ namespace seleniumCSharp.Common
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             WebDriverWait wait = new WebDriverWait(driver, new System.TimeSpan(0, 0, 20));
             wait.Until(wd => js.ExecuteScript("return document.readyState").ToString() == "complete");
+        }
+        public static void sleep(int inputSeconds)
+        {
+            TimeSpan seconds = new TimeSpan(0,0, inputSeconds);
+            Thread.Sleep(seconds);
         }
     }
 }

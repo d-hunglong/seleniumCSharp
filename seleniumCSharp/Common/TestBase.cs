@@ -10,7 +10,7 @@ using OpenQA.Selenium.Safari;
 namespace seleniumCSharp.Common
 {
     [TestFixture]
-    public class WebDriverLaunch
+    public class TestBase
     {
         public static IWebDriver driver;
 
@@ -18,7 +18,7 @@ namespace seleniumCSharp.Common
         public void startBrowser()
         {
             launchDriver();
-            driver.Url = "https://dlevvia.aaps.deloitte.com/";
+            driver.Url = "http://testphp.vulnweb.com/index.php";
         }
 
         public enum BrowserType

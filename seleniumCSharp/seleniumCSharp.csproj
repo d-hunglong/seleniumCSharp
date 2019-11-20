@@ -67,11 +67,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="TestCases\LoginDeloitte.cs" />
+    <Compile Include="Tests\LoginTestphp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\PageActions.cs" />
-    <Compile Include="Common\WebDriverLaunch.cs" />
-    <Compile Include="Pages\LoginObjects.cs" />
+    <Compile Include="Common\TestBase.cs" />
+    <Compile Include="PageObjects\LoginObjects.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

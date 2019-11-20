@@ -41,7 +41,10 @@ namespace seleniumCSharp.Common
                     driver = new InternetExplorerDriver();
                     break;
                 case BrowserType.Chrome:
-                    driver = new ChromeDriver();
+                    ChromeOptions options = new ChromeOptions();
+                    options.AddExcludedArgument("enable-automation");
+                    options.AddAdditionalCapability("useAutomationExtension", false);
+                    driver = new ChromeDriver(options);
                     break;
                 case BrowserType.Edge:
                     driver = new EdgeDriver();

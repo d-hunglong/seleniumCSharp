@@ -7,53 +7,53 @@ using seleniumCSharp.PageObjects;
 namespace seleniumCSharp.Tests
 {
     [TestFixture]
-    public class LoginTestphp : TestBase
+    public class LoginTestphp : DriverFactory
     {
 
         [Test, Order(1)]
         public void GoToSignupPage()
         {
-            PageActions.click(LoginObjects.signupElement);
-            PageActions.waitelementvisible(LoginObjects.signupTitleElement);
-            string temptext = PageActions.gettext(LoginObjects.signupTitleElement);
+            PageActions.Click(LoginObjects.signupElement);
+            PageActions.WaitElementVisible(LoginObjects.signupTitleElement);
+            string temptext = PageActions.GetText(LoginObjects.signupTitleElement);
             Assert.IsTrue(temptext.Contains("If you are already registered please enter your login information below"));
         }
         [Test, Order(2)]
         public void GoToSignupHere()
         {
-            PageActions.click(LoginObjects.signupHereElement);
-            PageActions.waitelementvisible(LoginObjects.pageNameTitleElement);
-            string temptext = PageActions.gettext(LoginObjects.pageNameTitleElement);
+            PageActions.Click(LoginObjects.signupHereElement);
+            PageActions.WaitElementVisible(LoginObjects.pageNameTitleElement);
+            string temptext = PageActions.GetText(LoginObjects.pageNameTitleElement);
             Assert.IsTrue(temptext.Contains("Signup new user"));
         }
         [Test, Order(3)]
         public void LoginWithValidAccount()
         {
-            PageActions.click(LoginObjects.signupElement);
-            PageActions.waitelementvisible(LoginObjects.usernameElement);
-            PageActions.input(LoginObjects.usernameElement, LoginObjects.accounttestphp);
-            PageActions.input(LoginObjects.passwordElement, LoginObjects.passwordtestphp);
-            PageActions.click(LoginObjects.loginButtonElement);
+            PageActions.Click(LoginObjects.signupElement);
+            PageActions.WaitElementVisible(LoginObjects.usernameElement);
+            PageActions.Input(LoginObjects.usernameElement, LoginObjects.accounttestphp);
+            PageActions.Input(LoginObjects.passwordElement, LoginObjects.passwordtestphp);
+            PageActions.Click(LoginObjects.loginButtonElement);
             //PageActions.acceptalert();
-            PageActions.waitelementvisible(LoginObjects.loginDescriptionElement);
-            string temptext = PageActions.gettext(LoginObjects.loginDescriptionElement);
+            PageActions.WaitElementVisible(LoginObjects.loginDescriptionElement);
+            string temptext = PageActions.GetText(LoginObjects.loginDescriptionElement);
             Assert.IsTrue(temptext.Contains("On this page you can visualize or edit you user information"));
         }
         [Test, Order(4)]
         public void LogoutTest()
         {
-            if (!PageActions.iselementpresent(LoginObjects.logoutTestElement))
+            if (!PageActions.IsElementPresent(LoginObjects.logoutTestElement))
             {
-                PageActions.click(LoginObjects.logoutTestElement);
-                PageActions.waitelementvisible(LoginObjects.pageNameTitleElement);
-                string temptext = PageActions.gettext(LoginObjects.pageNameTitleElement);
+                PageActions.Click(LoginObjects.logoutTestElement);
+                PageActions.WaitElementVisible(LoginObjects.pageNameTitleElement);
+                string temptext = PageActions.GetText(LoginObjects.pageNameTitleElement);
                 Assert.IsTrue(temptext.Contains("You have been logged out. See you back soon"));
             }
             else
             {
-                PageActions.click(LoginObjects.cartHereElement);
-                PageActions.waitelementvisible(LoginObjects.productIdCartElement);
-                string temptext = PageActions.gettext(LoginObjects.productIdCartElement);
+                PageActions.Click(LoginObjects.cartHereElement);
+                PageActions.WaitElementVisible(LoginObjects.productIdCartElement);
+                string temptext = PageActions.GetText(LoginObjects.productIdCartElement);
                 Assert.IsTrue(temptext.Contains("Product id"));
             }
 

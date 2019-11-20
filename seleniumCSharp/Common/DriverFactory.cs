@@ -10,7 +10,7 @@ using OpenQA.Selenium.Safari;
 namespace seleniumCSharp.Common
 {
     [TestFixture]
-    public class TestBase
+    public class DriverFactory
     {
         public static IWebDriver driver;
 

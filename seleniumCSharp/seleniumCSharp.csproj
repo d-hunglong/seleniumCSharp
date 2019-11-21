@@ -67,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="PageObjects\GlobalNavObjects.cs" />
+    <Compile Include="Tests\GlobalNavigationTestphp.cs" />
     <Compile Include="Tests\LoginTestphp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Common\PageActions.cs" />

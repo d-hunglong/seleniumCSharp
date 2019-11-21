@@ -14,5 +14,5 @@
 /TestResults/**
 **/PublishProfiles/**
 /seleniumCSharp/.editorconfig
-/seleniumCSharp/Defect_Screenshots
-/seleniumCSharp/Test_Execution_Reports
+/seleniumCSharp/Error_Screenshots
+/seleniumCSharp/Test_Reports

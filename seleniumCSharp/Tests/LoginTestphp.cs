@@ -9,7 +9,6 @@ namespace seleniumCSharp.Tests
     [TestFixture]
     public class LoginTestphp : DriverFactory
     {
-
         [Test, Order(1)]
         public void GoToSignupPage()
         {

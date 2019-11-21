@@ -28,8 +28,8 @@ namespace seleniumCSharp.Common
             {
                 _extent = new ExtentReports();
                 var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug","");
-                DirectoryInfo di = Directory.CreateDirectory(dir + "\\Test_Reports");
-                var htmlReport = new ExtentHtmlReporter(dir + "\\Test_Reports" + "\\Automation_Report" + ".html");
+                DirectoryInfo di = Directory.CreateDirectory(dir + "\\Test_Reports\\");
+                var htmlReport = new ExtentHtmlReporter(dir + "\\Test_Reports\\" + "\\HTML_Report\\" + ".html");
                 _extent.AddSystemInfo("Environment", "testphp.vulnweb");
                 _extent.AddSystemInfo("Username", "LongDo");
                 _extent.AttachReporter(htmlReport);
@@ -81,7 +81,7 @@ namespace seleniumCSharp.Common
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
         }
-
+        
         [SetUp]
         public void BeforeTest()
         {
@@ -94,6 +94,7 @@ namespace seleniumCSharp.Common
                 throw (e);
             }
         }
+        
         [TearDown]
         public void AfterTest()
         {

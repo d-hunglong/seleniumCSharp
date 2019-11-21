@@ -44,6 +44,8 @@ namespace seleniumCSharp.Common
                     ChromeOptions options = new ChromeOptions();
                     options.AddExcludedArgument("enable-automation");
                     options.AddAdditionalCapability("useAutomationExtension", false);
+                    options.AddUserProfilePreference("credentials_enable_service", false);
+                    options.AddUserProfilePreference("profile.password_manager_enabled", false);
                     driver = new ChromeDriver(options);
                     break;
                 case BrowserType.Edge:

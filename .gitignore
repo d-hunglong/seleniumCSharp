@@ -16,3 +16,4 @@
 /seleniumCSharp/.editorconfig
 /seleniumCSharp/Error_Screenshots
 /seleniumCSharp/Test_Reports
+/TestResult/**

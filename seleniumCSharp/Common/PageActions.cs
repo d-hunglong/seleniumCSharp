@@ -10,42 +10,42 @@ namespace seleniumCSharp.Common
     {
         public static void Click(By by)
         {
-            driver.FindElement(by).Click();
+            _driver.FindElement(by).Click();
             Thread.Sleep(1000);
         }
         public static void WaitAndClick(By by)
         {
-            WebDriverWait wait = new WebDriverWait(driver, System.TimeSpan.FromSeconds(20));
+            WebDriverWait wait = new WebDriverWait(_driver, System.TimeSpan.FromSeconds(20));
             wait.Until(driver => driver.FindElement(by));
-            driver.FindElement(by).Click();
+            _driver.FindElement(by).Click();
             Thread.Sleep(1000);
         }
         public static void Input(By by, string text)
         {
-            driver.FindElement(by).SendKeys(text);
+            _driver.FindElement(by).SendKeys(text);
             Thread.Sleep(500);
         }
         public static void ClearText(By by)
         {
-            driver.FindElement(by).Clear();
+            _driver.FindElement(by).Clear();
             Thread.Sleep(500);
         }
         public static void WaitElementVisible(By by)
         {
-            WebDriverWait wait = new WebDriverWait(driver, System.TimeSpan.FromSeconds(20));
+            WebDriverWait wait = new WebDriverWait(_driver, System.TimeSpan.FromSeconds(20));
             wait.Until(driver => driver.FindElement(by));
             Thread.Sleep(500);
         }
         public static string GetText(By by)
         {
-            string temp = driver.FindElement(by).Text;
+            string temp = _driver.FindElement(by).Text;
             Console.WriteLine(temp);
             return temp;
         }
         public static void DoubleClick(By by)
         {
-            Actions actions = new Actions(driver);
-            IWebElement ele = driver.FindElement(by);
+            Actions actions = new Actions(_driver);
+            IWebElement ele = _driver.FindElement(by);
             actions.DoubleClick(ele).Perform();
         }
         public static void ScrollIntoView(By by)
@@ -66,14 +66,14 @@ namespace seleniumCSharp.Common
         }
         public static void AcceptAlert()
         {
-            IAlert alert = driver.SwitchTo().Alert();
+            IAlert alert = _driver.SwitchTo().Alert();
             alert.Accept();
         }
         public static bool IsElementPresent(By by)
         {
             try
             {
-                driver.FindElement(by);
+                _driver.FindElement(by);
                 return true;
             }
             catch (NoSuchElementException)
@@ -83,7 +83,7 @@ namespace seleniumCSharp.Common
         }
         public static void Navigate(Uri url)
         {
-            driver.Navigate().GoToUrl(url);
+            _driver.Navigate().GoToUrl(url);
         }
     }
 }

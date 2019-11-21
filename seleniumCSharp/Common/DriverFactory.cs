@@ -17,7 +17,7 @@ namespace seleniumCSharp.Common
     [TestFixture]
     public class DriverFactory
     {
-        public static IWebDriver driver;
+        public static IWebDriver _driver;
         protected ExtentReports _extent;
         protected ExtentTest _test;
 
@@ -27,7 +27,7 @@ namespace seleniumCSharp.Common
             try
             {
                 _extent = new ExtentReports();
-                var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug","");
+                var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
                 DirectoryInfo di = Directory.CreateDirectory(dir + "\\Test_Reports\\");
                 var htmlReport = new ExtentHtmlReporter(dir + "\\Test_Reports\\" + "\\HTML_Report\\" + ".html");
                 _extent.AddSystemInfo("Environment", "testphp.vulnweb");
@@ -39,7 +39,7 @@ namespace seleniumCSharp.Common
                 throw (e);
             }
             launchDriver();
-            driver.Url = "http://testphp.vulnweb.com/index.php";
+            _driver.Url = "http://testphp.vulnweb.com/index.php";
         }
 
         public enum BrowserType
@@ -56,10 +56,10 @@ namespace seleniumCSharp.Common
             switch (browserType)
             {
                 case BrowserType.Firefox:
-                    driver = new FirefoxDriver();
+                    _driver = new FirefoxDriver();
                     break;
                 case BrowserType.Ie:
-                    driver = new InternetExplorerDriver();
+                    _driver = new InternetExplorerDriver();
                     break;
                 case BrowserType.Chrome:
                     ChromeOptions options = new ChromeOptions();
@@ -67,21 +67,21 @@ namespace seleniumCSharp.Common
                     options.AddAdditionalCapability("useAutomationExtension", false);
                     options.AddUserProfilePreference("credentials_enable_service", false);
                     options.AddUserProfilePreference("profile.password_manager_enabled", false);
-                    driver = new ChromeDriver(options);
+                    _driver = new ChromeDriver(options);
                     break;
                 case BrowserType.Edge:
-                    driver = new EdgeDriver();
+                    _driver = new EdgeDriver();
                     break;
                 case BrowserType.Safari:
-                    driver = new SafariDriver();
+                    _driver = new SafariDriver();
                     break;
                 default:
                     throw new NotSupportedException("Unrecognized browser type: " + browserType);
             }
-            driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+            _driver.Manage().Window.Maximize();
+            _driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
         }
-        
+
         [SetUp]
         public void BeforeTest()
         {
@@ -94,31 +94,31 @@ namespace seleniumCSharp.Common
                 throw (e);
             }
         }
-        
+
         [TearDown]
         public void AfterTest()
         {
             try
             {
                 var status = TestContext.CurrentContext.Result.Outcome.Status;
-                var stacktrace = "" +TestContext.CurrentContext.Result.StackTrace + "";
+                var stacktrace = "" + TestContext.CurrentContext.Result.StackTrace + "";
                 var errorMessage = TestContext.CurrentContext.Result.Message;
                 Status logstatus;
                 switch (status)
                 {
                     case TestStatus.Failed:
                         logstatus = Status.Fail;
-                        string screenShotPath = Capture(driver, TestContext.CurrentContext.Test.Name);
-                        _test.Log(logstatus, "Test ended with " +logstatus + " – " +errorMessage);
-                        _test.Log(logstatus, "Snapshot below: " +_test.AddScreenCaptureFromPath(screenShotPath));
+                        string screenShotPath = Capture(_driver, TestContext.CurrentContext.Test.Name);
+                        _test.Log(logstatus, "Test ended with " + logstatus + " – " + errorMessage);
+                        _test.Log(logstatus, "Snapshot below: " + _test.AddScreenCaptureFromPath(screenShotPath));
                         break;
                     case TestStatus.Skipped:
                         logstatus = Status.Skip;
-                        _test.Log(logstatus, "Test ended with " +logstatus);
+                        _test.Log(logstatus, "Test ended with " + logstatus);
                         break;
                     default:
                         logstatus = Status.Pass;
-                        _test.Log(logstatus, "Test ended with " +logstatus);
+                        _test.Log(logstatus, "Test ended with " + logstatus);
                         break;
                 }
             }
@@ -129,6 +129,9 @@ namespace seleniumCSharp.Common
         }
         private string Capture(IWebDriver driver, string screenShotName)
         {
+            DateTime serverTime = DateTime.Now;
+            DateTime utcTime = serverTime.ToUniversalTime();
+            Console.WriteLine($"{utcTime:MMddyyy_HHmmss}");
             string localpath = "";
             try
             {
@@ -138,7 +141,7 @@ namespace seleniumCSharp.Common
                 string pth = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
                 var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
                 DirectoryInfo di = Directory.CreateDirectory(dir + "\\Error_Screenshots\\");
-                string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "\\Error_Screenshots\\" +screenShotName + ".png";
+                string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "\\Error_Screenshots\\" + screenShotName + $"{utcTime:_MMddyyy_HHmmss}" + "_.png";
                 localpath = new Uri(finalpth).LocalPath;
                 screenshot.SaveAsFile(localpath);
             }
@@ -149,18 +152,18 @@ namespace seleniumCSharp.Common
             return localpath;
         }
 
-    [OneTimeTearDown]
+        [OneTimeTearDown]
         public void closeBrowser()
         {
             try
             {
                 _extent.Flush();
             }
-             catch (Exception e)
+            catch (Exception e)
             {
                 throw (e);
             }
-                driver.Quit();
+            _driver.Quit();
         }
     }
 }

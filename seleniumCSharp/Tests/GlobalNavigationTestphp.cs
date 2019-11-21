@@ -48,7 +48,7 @@ namespace seleniumCSharp.Tests
             PageActions.Click(GlobalNavObjects.yourCartNavElement);
             PageActions.WaitElementVisible(LoginObjects.productIdCartElement);
             string temptext = PageActions.GetText(LoginObjects.productIdCartElement);
-            Assert.IsTrue(temptext.Contains("Product id"));
+            Assert.IsTrue(temptext.Contains("Product ID"));
         }
         [Test, Order(6)]
         public void GoToOurGuestbook()

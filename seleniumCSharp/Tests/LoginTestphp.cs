@@ -40,24 +40,20 @@ namespace seleniumCSharp.Tests
             Assert.IsTrue(temptext.Contains("On this page you can visualize or edit you user information"));
         }
         [Test, Order(4)]
+        public void GotoCart()
+        {
+            PageActions.Click(LoginObjects.cartHereElement);
+            PageActions.WaitElementVisible(LoginObjects.productIdCartElement);
+            string temptext = PageActions.GetText(LoginObjects.productIdCartElement);
+            Assert.IsTrue(temptext.Contains("Product id"));
+        }
+        [Test, Order(5)]
         public void LogoutTest()
         {
-            if (!PageActions.IsElementPresent(LoginObjects.logoutTestElement))
-            {
-                PageActions.Click(LoginObjects.logoutTestElement);
-                PageActions.WaitElementVisible(LoginObjects.pageNameTitleElement);
-                string temptext = PageActions.GetText(LoginObjects.pageNameTitleElement);
-                Assert.IsTrue(temptext.Contains("You have been logged out. See you back soon"));
-            }
-            else
-            {
-                PageActions.Click(LoginObjects.cartHereElement);
-                PageActions.WaitElementVisible(LoginObjects.productIdCartElement);
-                string temptext = PageActions.GetText(LoginObjects.productIdCartElement);
-                Assert.IsTrue(temptext.Contains("Product id"));
-            }
-
-            
+            PageActions.Click(LoginObjects.logoutTestElement);
+            PageActions.WaitElementVisible(LoginObjects.pageNameTitleElement);
+            string temptext = PageActions.GetText(LoginObjects.pageNameTitleElement);
+            Assert.IsTrue(temptext.Contains("You have been logged out. See you back soon"));
         }
     }
 }

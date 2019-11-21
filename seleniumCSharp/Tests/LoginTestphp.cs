@@ -53,7 +53,7 @@ namespace seleniumCSharp.Tests
             PageActions.Click(LoginObjects.logoutTestElement);
             PageActions.WaitElementVisible(LoginObjects.pageNameTitleElement);
             string temptext = PageActions.GetText(LoginObjects.pageNameTitleElement);
-            Assert.IsTrue(temptext.Contains("You haven't been logged out. See you back soon"));
+            Assert.IsTrue(temptext.Contains("You haven't been logged out"));
         }
     }
 }

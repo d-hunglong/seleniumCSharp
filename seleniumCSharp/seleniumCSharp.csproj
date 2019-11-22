@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\AssertText.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="PageObjects\GlobalNavObjects.cs" />
     <Compile Include="Tests\GlobalNavigationTestphp.cs" />

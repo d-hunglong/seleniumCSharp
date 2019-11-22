@@ -109,16 +109,16 @@ namespace seleniumCSharp.Common
                     case TestStatus.Failed:
                         logstatus = Status.Fail;
                         string screenShotPath = Capture(_driver, TestContext.CurrentContext.Test.Name);
-                        _test.Log(logstatus, "Test ended with " + logstatus + " – " + errorMessage);
+                        _test.Log(logstatus, "Test case is " + logstatus + " – " + errorMessage);
                         _test.Log(logstatus, "Snapshot below: " + _test.AddScreenCaptureFromPath(screenShotPath));
                         break;
                     case TestStatus.Skipped:
                         logstatus = Status.Skip;
-                        _test.Log(logstatus, "Test ended with " + logstatus);
+                        _test.Log(logstatus, "Test case is " + logstatus);
                         break;
                     default:
                         logstatus = Status.Pass;
-                        _test.Log(logstatus, "Test ended with " + logstatus);
+                        _test.Log(logstatus, "Test case is " + logstatus);
                         break;
                 }
             }

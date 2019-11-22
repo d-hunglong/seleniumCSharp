@@ -39,7 +39,7 @@ namespace seleniumCSharp.Common
         public static string GetText(By by)
         {
             string temp = _driver.FindElement(by).Text;
-            Console.WriteLine(temp);
+            Console.WriteLine("Actual text: "+temp);
             return temp;
         }
         public static void DoubleClick(By by)

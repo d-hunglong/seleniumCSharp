@@ -20,7 +20,7 @@ namespace seleniumCSharp.Tests
         [Test, Order(2)]
         public void SignupPageTitle()
         {
-            AssertText.PageTitleEqual("login page1");
+            AssertText.PageTitleEqual("login page");
         }
         [Test, Order(3)]
         public void GoToSignupHere()
@@ -49,7 +49,6 @@ namespace seleniumCSharp.Tests
             PageActions.Click(LoginObjects.cartHereElement);
             PageActions.WaitElementVisible(LoginObjects.productIdCartElement);
             string actualtext = PageActions.GetText(LoginObjects.productIdCartElement);
-            //Assert.IsTrue(temptext.Contains("Product id"));
             AssertText.TextEqual(actualtext, "Product ID");
         }
         [Test, Order(6)]

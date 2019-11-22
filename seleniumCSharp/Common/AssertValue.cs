@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace seleniumCSharp.Common
 {
-    public class AssertText : DriverFactory
+    public class AssertValue : DriverFactory
     {
         public static void TextContains(string actualtext, string expectedcontainstext)
         {
@@ -18,6 +18,5 @@ namespace seleniumCSharp.Common
             string actualpagetitle = _driver.Title;
             Assert.AreEqual(expectedequalpagetitle, actualpagetitle); //"["+expectedequalpagetitle+"] is not equal to ["+ actualpagetitle+"]"
         }
-
     }
 }

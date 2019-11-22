@@ -13,51 +13,51 @@ namespace seleniumCSharp.Tests
         public void GoToSignupPage()
         {
             PageActions.Click(LoginObjects.signupElement);
-            PageActions.WaitElementVisible(LoginObjects.signupTitleElement);
+            Wait.WaitElementVisible(LoginObjects.signupTitleElement);
             string actualtext = PageActions.GetText(LoginObjects.signupTitleElement);
-            Assert.IsTrue(actualtext.Contains("If you are already registered please enter your login information below"));
+            AssertValue.TextContains(actualtext, "If you are already registered please enter your login information below");
         }
         [Test, Order(2)]
         public void SignupPageTitle()
         {
-            AssertText.PageTitleEqual("login page");
+            AssertValue.PageTitleEqual("login page");
         }
         [Test, Order(3)]
         public void GoToSignupHere()
         {
             PageActions.Click(LoginObjects.signupHereElement);
-            PageActions.WaitElementVisible(LoginObjects.pageNameTitleElement);
+            Wait.WaitElementVisible(LoginObjects.pageNameTitleElement);
             string actualtext = PageActions.GetText(LoginObjects.pageNameTitleElement);
-            Assert.IsTrue(actualtext.Contains("Signup new user"));
+            AssertValue.TextContains(actualtext,"Signup new user");
         }
         [Test, Order(4)]
         public void LoginWithValidAccount()
         {
             PageActions.Click(LoginObjects.signupElement);
-            PageActions.WaitElementVisible(LoginObjects.usernameElement);
+            Wait.WaitElementVisible(LoginObjects.usernameElement);
             PageActions.Input(LoginObjects.usernameElement, LoginObjects.accounttestphp);
             PageActions.Input(LoginObjects.passwordElement, LoginObjects.passwordtestphp);
             PageActions.Click(LoginObjects.loginButtonElement);
             //PageActions.acceptalert();
-            PageActions.WaitElementVisible(LoginObjects.loginDescriptionElement);
+            Wait.WaitElementVisible(LoginObjects.loginDescriptionElement);
             string actualtext = PageActions.GetText(LoginObjects.loginDescriptionElement);
-            Assert.IsTrue(actualtext.Contains("On this page you can visualize or edit you user information"));
+            AssertValue.TextContains(actualtext, "On this page you can visualize or edit you user information");
         }
         [Test, Order(5)]
         public void GotoCart()
         {
             PageActions.Click(LoginObjects.cartHereElement);
-            PageActions.WaitElementVisible(LoginObjects.productIdCartElement);
+            Wait.WaitElementVisible(LoginObjects.productIdCartElement);
             string actualtext = PageActions.GetText(LoginObjects.productIdCartElement);
-            AssertText.TextEqual(actualtext, "Product ID");
+            AssertValue.TextEqual(actualtext, "Product ID");
         }
         [Test, Order(6)]
         public void LogoutTest()
         {
             PageActions.Click(LoginObjects.logoutTestElement);
-            PageActions.WaitElementVisible(LoginObjects.pageNameTitleElement);
+            Wait.WaitElementVisible(LoginObjects.pageNameTitleElement);
             string actualtext = PageActions.GetText(LoginObjects.pageNameTitleElement);
-            AssertText.TextContains(actualtext, "You haven't been logout");
+            AssertValue.TextContains(actualtext, "You haven't been logout");
         }
     }
 }

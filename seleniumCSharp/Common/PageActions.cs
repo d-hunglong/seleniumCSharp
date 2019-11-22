@@ -13,13 +13,6 @@ namespace seleniumCSharp.Common
             _driver.FindElement(by).Click();
             Thread.Sleep(1000);
         }
-        public static void WaitAndClick(By by)
-        {
-            WebDriverWait wait = new WebDriverWait(_driver, System.TimeSpan.FromSeconds(20));
-            wait.Until(driver => driver.FindElement(by));
-            _driver.FindElement(by).Click();
-            Thread.Sleep(1000);
-        }
         public static void Input(By by, string text)
         {
             _driver.FindElement(by).SendKeys(text);
@@ -30,17 +23,15 @@ namespace seleniumCSharp.Common
             _driver.FindElement(by).Clear();
             Thread.Sleep(500);
         }
-        public static void WaitElementVisible(By by)
-        {
-            WebDriverWait wait = new WebDriverWait(_driver, System.TimeSpan.FromSeconds(20));
-            wait.Until(driver => driver.FindElement(by));
-            Thread.Sleep(500);
-        }
         public static string GetText(By by)
         {
             string temp = _driver.FindElement(by).Text;
             Console.WriteLine("Actual text: "+temp);
             return temp;
+        }
+        public static void PrintText(string textneedtoprint)
+        {
+            Console.WriteLine(textneedtoprint);
         }
         public static void DoubleClick(By by)
         {
@@ -52,12 +43,6 @@ namespace seleniumCSharp.Common
         {
             IJavaScriptExecutor driver = null;
             driver.ExecuteScript("arguments[0].scrollIntoView(true);", by);
-        }
-        public static void WaitPageLoad(IWebDriver driver)
-        {
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            WebDriverWait wait = new WebDriverWait(driver, new System.TimeSpan(0, 0, 20));
-            wait.Until(wd => js.ExecuteScript("return document.readyState").ToString() == "complete");
         }
         public static void Pause(int inputSeconds)
         {

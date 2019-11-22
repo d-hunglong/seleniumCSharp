@@ -38,3 +38,4 @@ C:\Users\long.do\Source\Repos\seleniumCSharp\seleniumCSharp\obj\Debug\seleniumCS
 C:\Users\long.do\source\repos\seleniumCSharp\seleniumCSharp\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\Users\long.do\source\repos\seleniumCSharp\seleniumCSharp\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\Users\long.do\source\repos\seleniumCSharp\seleniumCSharp\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\long.do\source\repos\seleniumCSharp\seleniumCSharp\obj\Debug\seleniumCSharp.csprojAssemblyReference.cache

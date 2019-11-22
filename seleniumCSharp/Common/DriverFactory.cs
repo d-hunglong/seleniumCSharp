@@ -36,7 +36,7 @@ namespace seleniumCSharp.Common
             }
             catch (Exception e)
             {
-                throw (e);
+                throw;
             }
             launchDriver();
             _driver.Url = "http://testphp.vulnweb.com/index.php";
@@ -91,7 +91,7 @@ namespace seleniumCSharp.Common
             }
             catch (Exception e)
             {
-                throw (e);
+                throw;
             }
         }
 
@@ -124,7 +124,7 @@ namespace seleniumCSharp.Common
             }
             catch (Exception e)
             {
-                throw (e);
+                throw;
             }
         }
         private string Capture(IWebDriver driver, string screenShotName)
@@ -147,7 +147,7 @@ namespace seleniumCSharp.Common
             }
             catch (Exception e)
             {
-                throw (e);
+                throw;
             }
             return localpath;
         }
@@ -161,7 +161,7 @@ namespace seleniumCSharp.Common
             }
             catch (Exception e)
             {
-                throw (e);
+                throw;
             }
             _driver.Quit();
         }

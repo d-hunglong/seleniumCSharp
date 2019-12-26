@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using seleniumCSharp.Common;
 
 namespace seleniumCSharp.PageObjects
 {
@@ -14,5 +15,8 @@ namespace seleniumCSharp.PageObjects
         public static By pageNameTitleElement = By.CssSelector("#pageName");
         public static By subNameTitleElement = By.CssSelector("tr > td > h2");
         public static By commentThisArtistElement = By.XPath("//a[text()='comment on this artist']");
+        public static By ajaxdemoNavElement = By.XPath("//a[text()='AJAX Demo']");
+        public static By ajaxSendXMLNavElement = By.XPath("//td[@class='bordered']/a[@onclick='sendXML()']");
+        public static By ajaxSetMyCookieNavElement = By.XPath("//td[@class='bordered']/a[@onclick='SetMyCookie()']");
     }
 }

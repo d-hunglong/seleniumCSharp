@@ -57,6 +57,7 @@ namespace seleniumCSharp.Tests
             Wait.WaitElementVisible(GlobalNavObjects.subNameTitleElement);
             string temptext = PageActions.GetText(GlobalNavObjects.subNameTitleElement);
             AssertValue.TextContains(temptext, "Our guestbook");
+            PageActions.Back();
         }
     }
 }

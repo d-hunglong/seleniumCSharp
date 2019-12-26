@@ -70,5 +70,17 @@ namespace seleniumCSharp.Common
         {
             _driver.Navigate().GoToUrl(url);
         }
+        public static void Back()
+        {
+            _driver.Navigate().Back();
+        }
+        public static void Forward()
+        {
+            _driver.Navigate().Forward();
+        }
+        public static void Reload()
+        {
+            _driver.Navigate().Refresh();
+        }
     }
 }

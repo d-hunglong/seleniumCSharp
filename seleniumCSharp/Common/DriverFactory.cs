@@ -20,6 +20,10 @@ namespace seleniumCSharp.Common
         public static IWebDriver _driver;
         protected ExtentReports _extent;
         protected ExtentTest _test;
+        static DateTime serverTime = DateTime.Now;
+        static DateTime utcTime = serverTime.ToUniversalTime();
+        static String todaysDate = DateTime.Now.ToString("ddMMMyy_HHmmss");
+        static string nameMachine = Environment.MachineName;
 
         [OneTimeSetUp]
         public void startBrowser()
@@ -29,9 +33,9 @@ namespace seleniumCSharp.Common
                 _extent = new ExtentReports();
                 var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
                 DirectoryInfo di = Directory.CreateDirectory(dir + "\\Test_Reports\\");
-                var htmlReport = new ExtentHtmlReporter(dir + "\\Test_Reports\\" + "\\HTML_Report\\" + ".html");
+                var htmlReport = new ExtentHtmlReporter(dir + "\\Test_Reports\\" + "\\Report_" + todaysDate + "\\" + ".html");
                 _extent.AddSystemInfo("Environment", "testphp.vulnweb");
-                _extent.AddSystemInfo("Username", "LongDo");
+                _extent.AddSystemInfo("Username", nameMachine);
                 _extent.AttachReporter(htmlReport);
             }
             catch (Exception e)
@@ -129,9 +133,7 @@ namespace seleniumCSharp.Common
         }
         private string Capture(IWebDriver driver, string screenShotName)
         {
-            DateTime serverTime = DateTime.Now;
-            DateTime utcTime = serverTime.ToUniversalTime();
-            Console.WriteLine($"{utcTime:MMddyyy_HHmmss}");
+            //Console.WriteLine($"{utcTime:MMddyyy_HHmmss}");
             string localpath = "";
             try
             {
@@ -141,7 +143,8 @@ namespace seleniumCSharp.Common
                 string pth = System.Reflection.Assembly.GetCallingAssembly().CodeBase;
                 var dir = AppDomain.CurrentDomain.BaseDirectory.Replace("\\bin\\Debug", "");
                 DirectoryInfo di = Directory.CreateDirectory(dir + "\\Error_Screenshots\\");
-                string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "\\Error_Screenshots\\" + screenShotName + $"{utcTime:_MMddyyy_HHmmss}" + "_.png";
+                //string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "\\Error_Screenshots\\" + screenShotName + $"{utcTime:_MMddyyy_HHmmss}" + "_.png";
+                string finalpth = pth.Substring(0, pth.LastIndexOf("bin")) + "\\Error_Screenshots\\" + screenShotName + "_" + todaysDate + ".png";
                 localpath = new Uri(finalpth).LocalPath;
                 screenshot.SaveAsFile(localpath);
             }

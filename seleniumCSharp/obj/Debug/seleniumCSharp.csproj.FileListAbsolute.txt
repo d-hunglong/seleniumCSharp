@@ -38,3 +38,4 @@ C:\Users\long.do\source\repos\seleniumCSharp\seleniumCSharp\bin\Debug\WebDriver.
 C:\Users\long.do\source\repos\seleniumCSharp\seleniumCSharp\obj\Debug\seleniumCSharp.csproj.CopyComplete
 C:\Users\long.do\source\repos\seleniumCSharp\seleniumCSharp\obj\Debug\seleniumCSharp.dll
 C:\Users\long.do\source\repos\seleniumCSharp\seleniumCSharp\obj\Debug\seleniumCSharp.pdb
+C:\Users\long.do\Source\Repos\seleniumCSharp\seleniumCSharp\obj\Debug\seleniumCSharp.csprojAssemblyReference.cache

@@ -43,7 +43,7 @@ namespace seleniumCSharp.Common
                 throw;
             }
             launchDriver();
-            _driver.Url = "http://testphp.vulnweb.com/index.php";
+            _driver.Url = "https://flutter.dev/";
         }
 
         public enum BrowserType

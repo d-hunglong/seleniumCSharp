@@ -4031,6 +4031,24 @@
             The test method attribute.
             </summary>
         </member>
+        <member name="M:Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute"/> class.
+            </summary>
+            <param name="displayName">
+            Message specifies reason for ignoring.
+            </param>
+        </member>
+        <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.DisplayName">
+            <summary>
+            Gets display Name for the Test Window
+            </summary>
+        </member>
         <member name="M:Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute.Execute(Microsoft.VisualStudio.TestTools.UnitTesting.ITestMethod)">
             <summary>
             Executes a test method.
@@ -4273,7 +4291,7 @@
             Initializes a new instance of the <see cref="T:Microsoft.VisualStudio.TestTools.UnitTesting.TimeoutAttribute"/> class.
             </summary>
             <param name="timeout">
-            The timeout.
+            The timeout in milliseconds.
             </param>
         </member>
         <member name="M:Microsoft.VisualStudio.TestTools.UnitTesting.TimeoutAttribute.#ctor(Microsoft.VisualStudio.TestTools.UnitTesting.TestTimeout)">
@@ -4286,7 +4304,7 @@
         </member>
         <member name="P:Microsoft.VisualStudio.TestTools.UnitTesting.TimeoutAttribute.Timeout">
             <summary>
-            Gets the timeout.
+            Gets the timeout in milliseconds.
             </summary>
         </member>
         <member name="T:Microsoft.VisualStudio.TestTools.UnitTesting.TestResult">
